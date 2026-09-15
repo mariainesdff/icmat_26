@@ -1,5 +1,7 @@
 import Mathlib.Basic.Real.Basic
 
+set_option linter.style.header false
+
 /-!
 # Example (from Patrick Massot's "Glimpse of Lean" tutorial)
 
