@@ -40,7 +40,6 @@ noncomputable section
 
 example (x : ℝ) : x.sqrt ^ 2 = x := by
   --exact? -- `exact?` could not close the goal. Try `apply?` to see partial suggestions.
-  refine Real.sq_sqrt ?_
   -- We forgot the hypothesis `0 ≤ x`.
   sorry
 
@@ -49,32 +48,30 @@ example (x : ℝ) (hx : 0 ≤ x) : x.sqrt ^ 2 = x := by
 
 open scoped Real in
 example : Real.sqrt π ^ 2 = π := by
-  refine Real.sq_sqrt ?_
-  exact Real.pi_nonneg
+  sorry
 
 example {G : Type*} [AddCommGroup G] (x y z : G) :
     z + x + (y - z - x) = y := by
-  rw [add_add_sub_cancel]
-  rw [add_sub_cancel]
+  sorry
 
 example {G : Type*} [AddCommGroup G] (x y z : G) :
     z + x + (y - z - x) = y := by
-  norm_num
+  sorry
 
 def fac : ℕ → ℕ
   | 0 => 1
   | n + 1 => (n + 1) * fac n
 
 example (n : ℕ) : fac (n + 1) = (n + 1) * fac n := by
-  simp only [fac]
+  sorry
 
 example {X Y : Type*} [MetricSpace X] [MetricSpace Y] {f : X → Y} (hf : Continuous f) :
     Continuous fun p : X × X ↦ dist (f p.1) (f p.2) := by
-  exact Continuous.dist (Continuous.comp' hf continuous_fst) (Continuous.comp' hf continuous_snd)
+  sorry
 
 example {a b c d e : ℕ} (h₀ : a ≤ b) (h₁ : b < c) (h₂ : c ≤ d)
     (h₃ : d < e) : a < e := by
-  omega
+  sorry
 
 /-!  ### Domain-specific tactics.  -/
 
