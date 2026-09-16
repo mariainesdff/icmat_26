@@ -4,3 +4,8 @@ import ICMAT26.Lecture2.Solutions.LogicExercises
 import ICMAT26.Lecture2.Solutions.LogicTutorial
 import ICMAT26.Lecture2.Solutions.Sets
 import ICMAT26.Lecture2.Tactics
+import ICMAT26.Lecture3.Solutions.Classes
+import ICMAT26.Lecture3.Solutions.Groups
+import ICMAT26.Lecture3.Solutions.Structures
+import ICMAT26.Lecture3.Tactics_2
+import ICMAT26.Lecture3.UsingMathlib

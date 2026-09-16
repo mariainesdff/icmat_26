@@ -50,6 +50,7 @@ and `Function.Surjective f` are propositions (whose truth value depends on `f`).
 /- If we open the "Function" `namespace`, we can omit `Function.` and simply write
 `Injective f` and `Surjective f`. -/
 
+
 open Function
 
 
@@ -86,7 +87,12 @@ tactic to replace these terms by their definition.-/
 
 /- For example, we can start this proof with `rw [injective_def]`, and later use `rw [id_eval]`. -/
 lemma injective_id : Injective (id : X → X) := by
-  sorry
+  rw [injective_def]
+  intro a b hab
+  rw [← id_eval a, ← id_eval b]
+  exact hab
+  -- rw [id_eval b, id_eval] at hab
+  -- exact hab
 
 /-- A composition of injective functions is injective. -/
 lemma injective_comp (hf : Injective f) (hg : Injective g) : Injective (g ∘ f) := by
@@ -110,12 +116,20 @@ lemma surjective_def : Surjective f ↔ ∀ y : Y, ∃ x : X, f x = y := by
 
 /-- The identity function is surjective. -/
 lemma surjective_id : Surjective (id : X → X) := by
+
   sorry --exercise
 
 
 /-- A composition of surjective functions is surjective. -/
-lemma surjective_comp (hf : Surjective f) (hg : Surjective g) : Surjective (g ∘ f) := by
-  sorry
+lemma surjective_comp (hf : Surjective f) (hg : Surjective g) :
+    Surjective (g ∘ f) := by
+  rw [surjective_def] at hf hg ⊢ -- or at *
+  intro z
+  specialize hg z
+  rcases hg with ⟨y, hyz⟩
+  rcases hf y with ⟨x, hxy⟩
+  use x
+  rw [comp_eval, hxy, hyz]
 
 
 /- Example -/
